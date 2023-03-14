@@ -1,4 +1,5 @@
 import React from "react";
+import CSVDownloader from "../CSVDownloader/CSVDownloader";
 
 import Footer from "../Footer/Footer";
 import PageSubtitle from "../PageSubtitle/PageSubtitle";
@@ -11,7 +12,7 @@ const Home = () => {
         <div className={styles.home}>
             <PageTitle>Candidates information csv download tool</PageTitle>
             <PageSubtitle>Click on the button to download CSV</PageSubtitle>
-            <Footer />
+            <CSVDownloader />
         </div>
     );
 };

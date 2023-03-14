@@ -1,20 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import clsx from 'clsx';
+import styles from "./PageSubtitle.module.scss";
 
-import styles from './PageSubtitle.module.scss';
-
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const PageSubtitle = (props) => {
-  return (
-    <p className={clsx(styles.subtitle, props.addMargin && styles.addMargin)}>{props.children}</p>
-  );
+    return <p className={styles.subtitle}>{props.children}</p>;
 };
 
 PageSubtitle.propTypes = {
-  children: PropTypes.string.isRequired,
-  addMargin: PropTypes.bool,
+    children: PropTypes.string.isRequired,
+    addMargin: PropTypes.bool,
 };
 
 export default PageSubtitle;

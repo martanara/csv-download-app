@@ -1,7 +1,6 @@
 import React from "react";
-import CSVDownloader from "../CSVDownloader/CSVDownloader";
 
-import Footer from "../Footer/Footer";
+import CSVDownloader from "../CSVDownloader/CSVDownloader";
 import PageSubtitle from "../PageSubtitle/PageSubtitle";
 import PageTitle from "../PageTitle/PageTitle";
 

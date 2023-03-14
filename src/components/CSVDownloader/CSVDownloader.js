@@ -50,7 +50,7 @@ const CSVDownloader = () => {
     return (
         <div className={styles.CSVDownloader}>
             <CSVLink data={data} headers={headers} filename={"candidates-list.csv"}>
-                <Button type="button">{data?.length !== 0 ? "Download CSV" : "Pending"}</Button>
+                <Button type="button">{data?.length !== 0 ? "Download CSV" : "Pending..."}</Button>
             </CSVLink>
         </div>
     );

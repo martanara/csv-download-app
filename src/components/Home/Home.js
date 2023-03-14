@@ -9,7 +9,7 @@ import styles from "./Home.module.scss";
 const Home = () => {
     return (
         <div className={styles.home}>
-            <PageTitle>Candidates information csv download tool</PageTitle>
+            <PageTitle>Candidates information CSV download tool</PageTitle>
             <PageSubtitle>Click on the button to download CSV</PageSubtitle>
             <CSVDownloader />
         </div>

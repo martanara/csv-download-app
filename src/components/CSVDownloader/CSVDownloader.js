@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import { CSVLink } from 'react-csv';
-import Axios from 'axios';
+import { CSVLink } from "react-csv";
+import Axios from "axios";
 
-import { mapCandidatesData } from '../../utils/mapCandidatesData';
-import Button from '../Button/Button';
+import { mapCandidatesData } from "../../utils/mapCandidatesData";
+import Button from "../Button/Button";
 
-import styles from './CSVDownloader.module.scss';
+import styles from "./CSVDownloader.module.scss";
 
 const teamtailorToken = process.env.REACT_APP_TEAMTAILOR_AUTHORIZATION_TOKEN;
 
 const headers = [
-    { label: 'candidate_id', key: 'candidate_id' },
-    { label: 'first_name', key: 'first_name' },
-    { label: 'last_name', key: 'last_name' },
-    { label: 'email', key: 'email' },
-    { label: 'job_application_id', key: 'job_application_id' },
-    { label: 'job_application_created_at', key: 'job_application_created_at' },
+    { label: "candidate_id", key: "candidate_id" },
+    { label: "first_name", key: "first_name" },
+    { label: "last_name", key: "last_name" },
+    { label: "email", key: "email" },
+    { label: "job_application_id", key: "job_application_id" },
+    { label: "job_application_created_at", key: "job_application_created_at" },
 ];
 
 const CSVDownloader = () => {
@@ -25,14 +25,14 @@ const CSVDownloader = () => {
     useEffect(() => {
         const fetchData = async () => {
             const config = {
-                method: 'get',
+                method: "get",
                 maxBodyLength: Infinity,
-                url: 'https://api.teamtailor.com/v1/candidates',
+                url: "https://api.teamtailor.com/v1/candidates",
                 headers: {
                     Authorization: `Token token=${teamtailorToken}`,
-                    'X-Api-Version': '20210218',
+                    "X-Api-Version": "20210218",
                 },
-                params: { include: 'job-applications' },
+                params: { include: "job-applications" },
             };
 
             try {
@@ -49,10 +49,8 @@ const CSVDownloader = () => {
 
     return (
         <div className={styles.CSVDownloader}>
-            <CSVLink data={data} headers={headers} filename={'candidates-list.csv'}>
-                <Button type='button'>
-                    {data?.length !== 0 ? 'Download CSV' : 'Pending'}
-                </Button>
+            <CSVLink data={data} headers={headers} filename={"candidates-list.csv"}>
+                <Button type="button">{data?.length !== 0 ? "Download CSV" : "Pending"}</Button>
             </CSVLink>
         </div>
     );

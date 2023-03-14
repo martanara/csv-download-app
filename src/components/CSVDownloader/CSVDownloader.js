@@ -22,28 +22,29 @@ const headers = [
 const CSVDownloader = () => {
     const [data, setData] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const config = {
-                method: "get",
-                maxBodyLength: Infinity,
-                url: "https://api.teamtailor.com/v1/candidates",
-                headers: {
-                    Authorization: `Token token=${teamtailorToken}`,
-                    "X-Api-Version": "20210218",
-                },
-                params: { include: "job-applications" },
-            };
-
-            try {
-                const response = await Axios(config);
-                const mappedData = mapCandidatesData(response.data);
-                setData(mappedData);
-            } catch (error) {
-                console.error(error);
-            }
+    const fetchData = async () => {
+        const config = {
+            method: "get",
+            maxBodyLength: Infinity,
+            url: "https://api.teamtailor.com/v1/candidates",
+            headers: {
+                Authorization: `Token token=${teamtailorToken}`,
+                "X-Api-Version": "20210218",
+                Accept: 'application/vnd.api+json'
+            },
+            params: { include: "job-applications" },
         };
 
+        try {
+            const response = await Axios(config);
+            const mappedData = mapCandidatesData(response.data);
+            setData(mappedData);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    useEffect(() => {
         fetchData();
     }, []);
 
